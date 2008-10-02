@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Profile for {{ request.user.username }}{% endblock %}
+
+{% block header %}<h1>Your Profile</h1>{% endblock %}
+
+{% block content %}
+<h2>Login Details <a class="headerlink" href="{{request.HTTP_ROOT}}/accounts/profile/edit/user/">edit</a></h2>
+<dl>
+ <dt>Username</dt>
+ <dd>{{request.user.username}}</dd>
+ <dt>Email Address</dt>
+ <dd>{{request.user.email}}</dd>
+ <dt>Real Name</dt>
+ <dd>{{request.user.get_full_name}}</dd>
+</dl>
+<h2>Profile Details <a class="headerlink" href="{{request.HTTP_ROOT}}/accounts/profile/edit/profile/">edit</a></h2>
+<dl>
+  <dt>Distro of Choice</dt>
+  <dd>{{request.user.get_profile.distro_of_choice}}</dd>
+  <dt>IRC Nickname</dt>
+  <dd>{{request.user.get_profile.irc_nickname}}</dd>
+</dl>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Viewing File{% endblock %}
+{% block header %}<h1>Uploaded File</h1>{% endblock %}
+{% block content %}
+{% if image %}
+<img src="{{ request.HTTP_ROOT }}/image/file/{{ file.id }}" />
+{% endif %}
+<dl>
+<dt>Uploaded on</dt>
+<dd>{{file.created }}</dd>
+<dt>Size</dt>
+<dd>{{file.filedata.size}} bytes</dd>
+</dl>
+{% endblock %}

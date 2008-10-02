@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Upload{% endblock %}
+{% block header %}<h1>Upload {%if image %}an Image{% else %} a File{% endif %}</h1>{% endblock %}
+{% block content %}
+<form enctype="multipart/form-data" method="post" action="#">
+<ul class="form">
+{{form.as_ul}}
+<li><input id="id_submit" type="submit" name="submit" value="upload"/></li>
+</ul>
+</form>
+{% endblock %}
